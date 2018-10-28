@@ -5,48 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
         android:id="@+id/txtDisplayName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imgAvatar"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/imgAvatar"
         android:layout_toRightOf="@+id/imgAvatar"
         android:text="Name"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="115dp" />
 
     <TextView
         android:id="@+id/txtUserID"
-        android:layout_width="83dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtDisplayName"
         android:layout_alignStart="@+id/txtDisplayName"
         android:layout_alignBottom="@+id/imgAvatar"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:text="ID"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDisplayName"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="115dp"
         android:layout_alignLeft="@+id/txtDisplayName" />
-
-    <ImageView
-        android:id="@+id/imgAvatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        tools:ignore="NotSibling"
-        tools:srcCompat="@tools:sample/avatars" />
 
 </RelativeLayout>

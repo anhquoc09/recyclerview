@@ -21,6 +21,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 public class ProfileList extends AppCompatActivity {
     @BindView(R.id.profile_recyclerview) RecyclerView profileRecyclerView;
     private List<Profile> profileList = new ArrayList<>();

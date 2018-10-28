@@ -10,14 +10,15 @@
     <ImageView
         android:id="@+id/imgBaner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/header" />
+        app:srcCompat="@drawable/header"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/imgProfileAvatar"
@@ -27,7 +28,8 @@
         android:layout_marginLeft="20dp"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="130dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txtProfileName"

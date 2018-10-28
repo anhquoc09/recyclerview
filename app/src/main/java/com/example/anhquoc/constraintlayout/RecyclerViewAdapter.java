@@ -32,6 +32,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
 
@@ -87,7 +88,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.txtDisplayName)TextView txtDisplayName;
         @BindView(R.id.txtUserID)TextView txtID;
-        @BindView(R.id.imgAvatar)ImageView imgAvatar;
+        @BindView(R.id.imgAvatar)CircleImageView imgAvatar;
 
         private ItemClickListener itemClickListener;
 

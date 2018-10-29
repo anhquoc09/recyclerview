@@ -36,7 +36,7 @@ import static android.widget.RelativeLayout.LayoutParams.*;
 public class ProfileList extends AppCompatActivity {
     @BindView(R.id.profile_recyclerview) RecyclerView profileRecyclerView;
     private List<Profile> profileList = new ArrayList<>();
-    @BindView(R.id.my_toolbar)Toolbar toolbar;
+    @BindView(R.id.myToolbar)Toolbar toolbar;
     ActionBar actionBar;
 
     @Override

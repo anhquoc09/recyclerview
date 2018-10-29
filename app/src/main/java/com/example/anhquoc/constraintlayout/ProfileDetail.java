@@ -44,5 +44,7 @@ public class ProfileDetail extends AppCompatActivity {
                 .with(this)
                 .load(avatar)
                 .into(imgProfileAvatar);
+
+
     }
 }

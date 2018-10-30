@@ -31,13 +31,13 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="150dp"
             android:adjustViewBounds="false"
-            android:contentDescription="Avatar"
             android:cropToPadding="false"
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="Avatar" />
 
         <TextView
             android:id="@+id/txtProfileName"
@@ -52,7 +52,6 @@
             android:ellipsize="none"
             android:maxLines="3"
             android:scrollHorizontally="false"
-            android:text="TextView"
             android:textColor="@android:color/black"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView"
@@ -67,7 +66,6 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
             app:layout_constraintStart_toEndOf="@+id/imgProfileAvatar"
             app:layout_constraintTop_toBottomOf="@+id/txtProfileName" />
 
@@ -118,18 +116,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/txtProfileName" />
 
+        <View
+            android:id="@+id/topLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRent"/>
+
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="1dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnRent">
+            app:layout_constraintTop_toBottomOf="@+id/topLine">
 
             <Button
                 android:id="@+id/imgRating"
@@ -140,6 +150,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/circle_ic_rating"
                 android:text="1.2"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -238,8 +249,18 @@
                 app:layout_constraintEnd_toEndOf="@+id/imgSimilar"
                 app:layout_constraintStart_toStartOf="@+id/imgSimilar"
                 app:layout_constraintTop_toBottomOf="@+id/imgSimilar" />
-
         </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/botLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"/>
 
         <TextView
             android:id="@+id/textView"
@@ -252,25 +273,24 @@
             android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:ellipsize="end"
-
             android:gravity="center_horizontal"
             android:text="app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizo
-        app:layout_constraintTop_toBottomOf=@+id/horizontalScrollView"
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizo
+            app:layout_constraintTop_toBottomOf=@+id/horizontalScrollView"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/botLine"
             app:layout_constraintVertical_bias="0.0" />
     </android.support.constraint.ConstraintLayout>
 

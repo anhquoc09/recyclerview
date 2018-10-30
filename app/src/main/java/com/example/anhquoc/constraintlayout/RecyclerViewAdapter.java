@@ -2,61 +2,43 @@ package com.example.anhquoc.constraintlayout;
 
 import android.content.Context;
 import android.content.Intent;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
-import android.os.AsyncTask;
-
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import com.bumptech.glide.Glide;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
 
     private Context context;
     private List<Profile> profileList;
-    private AsyncTask downloadTask;
 
-    public RecyclerViewAdapter(Context context, List<Profile> plist) {
+    RecyclerViewAdapter(Context context, List<Profile> plist) {
         this.context = context;
         this.profileList = plist;
     }
-
     @NonNull
     @Override
-    public RecyclerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.profile_list_item,viewGroup,false);
         return new RecyclerViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerViewHolder recyclerViewHolder, int i) {
+        //Gán dữ liệu và thuộc tính cho mỗi item
         recyclerViewHolder.txtID.setText(profileList.get(i).getProfileId());
         recyclerViewHolder.txtDisplayName.setText(profileList.get(i).getDisplayName());
-        //Download image from url
+
         String avatarUrl = profileList.get(i).getAvatar();
         Glide
                 .with(context)
@@ -85,21 +67,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         void onClick(View itemView,int position);
     }
 
-    public static class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        //Khai báo view cho mỗi item
         @BindView(R.id.txtDisplayName)TextView txtDisplayName;
         @BindView(R.id.txtUserID)TextView txtID;
         @BindView(R.id.imgAvatar)CircleImageView imgAvatar;
 
-        private ItemClickListener itemClickListener;
+        ItemClickListener itemClickListener;
 
-        public RecyclerViewHolder(View itemView) {
+        RecyclerViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-            //set OnClick for Item
-            itemView.setOnClickListener( this);
+            itemView.setOnClickListener(this);
         }
-        //Setter for ItemClick
-        public void setItemClickListener(ItemClickListener itemClickListener){
+
+        void setItemClickListener(ItemClickListener itemClickListener){
             this.itemClickListener = itemClickListener;
         }
         @Override
@@ -107,5 +89,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             itemClickListener.onClick(view, getAdapterPosition());
         }
     }
-
 }

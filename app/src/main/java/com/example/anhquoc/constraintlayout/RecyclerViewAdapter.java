@@ -7,7 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,9 +28,40 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.context = context;
         this.profileList = plist;
     }
+
+    public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+        //Khai báo view cho mỗi item
+        @BindView(R.id.txtDisplayName)TextView txtDisplayName;
+        @BindView(R.id.txtUserID)TextView txtID;
+        @BindView(R.id.imgAvatar)CircleImageView imgAvatar;
+        @BindView(R.id.itemView)RelativeLayout itemViewLayout;
+        ItemClickListener itemClickListener;
+
+        RecyclerViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this,itemView);
+            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
+        }
+
+        void setItemClickListener(ItemClickListener itemClickListener){
+            this.itemClickListener = itemClickListener;
+        }
+        @Override
+        public void onClick(View view){
+            itemClickListener.onClick(view, getAdapterPosition(), false);
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            itemClickListener.onClick(view, getAdapterPosition(), true);
+            return true;
+        }
+    }
+
     @NonNull
     @Override
-    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.profile_list_item,viewGroup,false);
         return new RecyclerViewHolder(view);
     }
@@ -47,14 +80,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         recyclerViewHolder.setItemClickListener(new ItemClickListener() {
             @Override
-            public void onClick(View itemView, int position) {
-                Intent intent = new Intent(context, ProfileDetail.class);
-                intent.putExtra("id", profileList.get(position).getProfileId());
-                intent.putExtra("name", profileList.get(position).getDisplayName());
-                intent.putExtra("avatarUrl", profileList.get(position).getAvatar());
-                context.startActivity(intent);
+            public void onClick(View itemView, int position, boolean isLongClick) {
+                if(!isLongClick) {
+                    Intent intent = new Intent(context, ProfileDetail.class);
+                    intent.putExtra("id", profileList.get(position).getProfileId());
+                    intent.putExtra("name", profileList.get(position).getDisplayName());
+                    intent.putExtra("avatarUrl", profileList.get(position).getAvatar());
+                    context.startActivity(intent);
+                }else {
+                    Toast.makeText(context, "Long Click!", Toast.LENGTH_LONG).show();
+                }
             }
-
         });
     }
 
@@ -63,30 +99,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return profileList.size();
     }
 
-    public interface ItemClickListener{
-        void onClick(View itemView,int position);
+    public void removeItem(int position) {
+        profileList.remove(position);
+        notifyItemRemoved(position);
     }
 
-    public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        //Khai báo view cho mỗi item
-        @BindView(R.id.txtDisplayName)TextView txtDisplayName;
-        @BindView(R.id.txtUserID)TextView txtID;
-        @BindView(R.id.imgAvatar)CircleImageView imgAvatar;
+    public void restoreItem(Profile item, int position) {
+        profileList.add(position, item);
+        notifyItemInserted(position);
+    }
 
-        ItemClickListener itemClickListener;
-
-        RecyclerViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this,itemView);
-            itemView.setOnClickListener(this);
-        }
-
-        void setItemClickListener(ItemClickListener itemClickListener){
-            this.itemClickListener = itemClickListener;
-        }
-        @Override
-        public void onClick(View view){
-            itemClickListener.onClick(view, getAdapterPosition());
-        }
+    public interface ItemClickListener{
+        void onClick(View itemView,int position, boolean isLongClick);
     }
 }

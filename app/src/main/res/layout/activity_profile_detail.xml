@@ -31,13 +31,14 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="150dp"
             android:adjustViewBounds="false"
+            android:clickable="true"
+            android:contentDescription="Avatar"
             android:cropToPadding="false"
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="Avatar" />
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/txtProfileName"
@@ -54,7 +55,7 @@
             android:scrollHorizontally="false"
             android:textColor="@android:color/black"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/btnBookmark"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imgProfileAvatar"
             app:layout_constraintTop_toBottomOf="@+id/imgBanner" />
@@ -106,7 +107,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/imageView"
+            android:id="@+id/btnBookmark"
             android:layout_width="22dp"
             android:layout_height="32dp"
             android:layout_marginTop="0dp"
@@ -142,7 +143,7 @@
             app:layout_constraintTop_toBottomOf="@+id/topLine">
 
             <Button
-                android:id="@+id/imgRating"
+                android:id="@+id/btnRating"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="24dp"
@@ -167,19 +168,19 @@
                 android:text="242 ratings"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imgRating"
-                app:layout_constraintStart_toStartOf="@+id/imgRating"
-                app:layout_constraintTop_toBottomOf="@+id/imgRating" />
+                app:layout_constraintEnd_toEndOf="@+id/btnRating"
+                app:layout_constraintStart_toStartOf="@+id/btnRating"
+                app:layout_constraintTop_toBottomOf="@+id/btnRating" />
 
             <Button
-                android:id="@+id/imgFamily"
+                android:id="@+id/btnFamily"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/circle_ic_family"
-                app:layout_constraintStart_toEndOf="@+id/imgRating"
+                app:layout_constraintStart_toEndOf="@+id/btnRating"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -192,12 +193,12 @@
                 android:text="Family"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imgFamily"
-                app:layout_constraintStart_toStartOf="@+id/imgFamily"
-                app:layout_constraintTop_toBottomOf="@+id/imgFamily" />
+                app:layout_constraintEnd_toEndOf="@+id/btnFamily"
+                app:layout_constraintStart_toStartOf="@+id/btnFamily"
+                app:layout_constraintTop_toBottomOf="@+id/btnFamily" />
 
             <Button
-                android:id="@+id/imgPercent"
+                android:id="@+id/btnPercent"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="22dp"
@@ -206,9 +207,9 @@
                 android:layout_marginEnd="22dp"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/circle_ic_percent"
-                app:layout_constraintEnd_toStartOf="@+id/imgSimilar"
+                app:layout_constraintEnd_toStartOf="@+id/btnSimilar"
                 app:layout_constraintHorizontal_bias="0.49"
-                app:layout_constraintStart_toEndOf="@+id/imgFamily"
+                app:layout_constraintStart_toEndOf="@+id/btnFamily"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -221,12 +222,12 @@
                 android:text="71%"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imgPercent"
-                app:layout_constraintStart_toStartOf="@+id/imgPercent"
-                app:layout_constraintTop_toBottomOf="@+id/imgPercent" />
+                app:layout_constraintEnd_toEndOf="@+id/btnPercent"
+                app:layout_constraintStart_toStartOf="@+id/btnPercent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPercent" />
 
             <Button
-                android:id="@+id/imgSimilar"
+                android:id="@+id/btnSimilar"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="16dp"
@@ -246,9 +247,9 @@
                 android:text="Similar"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imgSimilar"
-                app:layout_constraintStart_toStartOf="@+id/imgSimilar"
-                app:layout_constraintTop_toBottomOf="@+id/imgSimilar" />
+                app:layout_constraintEnd_toEndOf="@+id/btnSimilar"
+                app:layout_constraintStart_toStartOf="@+id/btnSimilar"
+                app:layout_constraintTop_toBottomOf="@+id/btnSimilar" />
         </android.support.constraint.ConstraintLayout>
 
         <View
@@ -263,7 +264,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"/>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtDescribe"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

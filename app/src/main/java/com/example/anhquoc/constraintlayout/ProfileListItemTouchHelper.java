@@ -7,10 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
-public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
+public class ProfileListItemTouchHelper extends ItemTouchHelper.SimpleCallback {
     private RecyclerItemTouchHelperListener listener;
 
-    public RecyclerItemTouchHelper(int dragDirs, int swipeDirs, RecyclerItemTouchHelperListener listener) {
+    public ProfileListItemTouchHelper(int dragDirs, int swipeDirs, RecyclerItemTouchHelperListener listener) {
         super(dragDirs, swipeDirs);
         this.listener = listener;
     }
@@ -25,7 +25,7 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         super.onSelectedChanged(viewHolder, actionState);
         final View view;
         if (viewHolder != null) {
-            view = ((RecyclerViewAdapter.RecyclerViewHolder) viewHolder).itemViewLayout;
+            view = ((ProfileListRVAdapter.RecyclerViewHolder) viewHolder).profileListItem;
 
             getDefaultUIUtil().onSelected(view);
         }
@@ -34,21 +34,21 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
     @Override
     public void onChildDrawOver(@NonNull Canvas c, @NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
         super.onChildDrawOver(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-        final View view = ((RecyclerViewAdapter.RecyclerViewHolder) viewHolder).itemViewLayout;
+        final View view = ((ProfileListRVAdapter.RecyclerViewHolder) viewHolder).profileListItem;
         getDefaultUIUtil().onDrawOver(c, recyclerView, view, dX, dY, actionState, isCurrentlyActive);
     }
 
     @Override
     public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-        final View view = ((RecyclerViewAdapter.RecyclerViewHolder) viewHolder).itemViewLayout;
+        final View view = ((ProfileListRVAdapter.RecyclerViewHolder) viewHolder).profileListItem;
         getDefaultUIUtil().onDraw(c, recyclerView, view, dX, dY, actionState, isCurrentlyActive);
     }
 
     @Override
     public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
-        final View view = ((RecyclerViewAdapter.RecyclerViewHolder) viewHolder).itemViewLayout;
+        final View view = ((ProfileListRVAdapter.RecyclerViewHolder) viewHolder).profileListItem;
 
         getDefaultUIUtil().clearView(view);
     }

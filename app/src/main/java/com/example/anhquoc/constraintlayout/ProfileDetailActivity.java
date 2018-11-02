@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ProfileDetail extends AppCompatActivity {
+public class ProfileDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.txtProfileID)
     TextView txtProfileID;
@@ -22,8 +22,6 @@ public class ProfileDetail extends AppCompatActivity {
     TextView txtProfileName;
     @BindView(R.id.imgProfileAvatar)
     ImageView imgProfileAvatar;
-
-    private Profile profile;
 
     @OnClick({R.id.imgProfileAvatar, R.id.imgBanner})
     public void onImageClicked(ImageView imageView) {
@@ -63,9 +61,9 @@ public class ProfileDetail extends AppCompatActivity {
         id = intent.getStringExtra("id");
         name = intent.getStringExtra("name");
         avatar = intent.getStringExtra("avatarUrl");
-        profile = new Profile(id, name, avatar);
+        Profile profile = new Profile(id, avatar, name);
 
-        txtProfileID.setText(profile.getProfileId());
+        txtProfileID.setText(profile.getUserId());
         txtProfileName.setText(profile.getDisplayName());
         Glide
                 .with(this)

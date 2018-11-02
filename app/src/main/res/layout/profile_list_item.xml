@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/itemView">
+    android:id="@+id/profileListItem">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgAvatar"
+        android:id="@+id/itemAvatar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -16,15 +16,15 @@
         android:layout_marginBottom="16dp" />
 
     <TextView
-        android:id="@+id/txtDisplayName"
+        android:id="@+id/itemDisplayName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imgAvatar"
+        android:layout_alignTop="@+id/itemAvatar"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/imgAvatar"
-        android:layout_toRightOf="@+id/imgAvatar"
+        android:layout_toEndOf="@+id/itemAvatar"
+        android:layout_toRightOf="@+id/itemAvatar"
         android:text="Name"
         android:textSize="14sp"
         android:textColor="@android:color/black"
@@ -32,21 +32,21 @@
         tools:layout_editor_absoluteX="115dp" />
 
     <TextView
-        android:id="@+id/txtUserID"
+        android:id="@+id/itemUserID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtDisplayName"
-        android:layout_alignStart="@+id/txtDisplayName"
-        android:layout_alignBottom="@+id/imgAvatar"
+        android:layout_below="@+id/itemDisplayName"
+        android:layout_alignStart="@+id/itemDisplayName"
+        android:layout_alignBottom="@+id/itemAvatar"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:text="ID"
         android:textSize="12sp"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDisplayName"
+        app:layout_constraintTop_toBottomOf="@+id/itemDisplayName"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="115dp"
-        android:layout_alignLeft="@+id/txtDisplayName" />
+        android:layout_alignLeft="@+id/itemDisplayName" />
 
 </RelativeLayout>
